@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://d2tp1eid5t1qd"]
+
+[ext_resource type="Script" uid="uid://monqmxb56eoa" path="res://scripts/buttons.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bvdlf1p8ssuc1" path="res://assets/sprites/main-menu/background/background.png" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://cn2ceus6qldgf" path="res://scripts/spinning_background.gd" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://dgtytg6x8pifq" path="res://assets/sprites/main-menu/buttons/tips.png" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://c68r3ujrtl1de" path="res://assets/sprites/main-menu/buttons/tips_selelected.png" id="5_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://bcjyc7go7qdlf" path="res://assets/sprites/main-menu/buttons/store.png" id="6_oa1go"]
+[ext_resource type="Texture2D" uid="uid://cnhx7rtye758b" path="res://assets/sprites/main-menu/buttons/store_selected.png" id="7_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://j44sg5j5yddg" path="res://assets/sprites/main-menu/buttons/exit.png" id="8_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://bskda8pph2x08" path="res://assets/sprites/main-menu/buttons/exit_selected.png" id="9_5dd4i"]
+[ext_resource type="AudioStream" uid="uid://nm788jul0g16" path="res://assets/sound-effects/hover_button.mp3" id="10_lgwnu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5dd4i"]
+load_path = "res://.godot/imported/logo_sign.png-3df60f02840af7c860168b509aed2e98.ctex"
+
+[node name="Main Menu" type="Node2D" unique_id=283911400]
+script = ExtResource("1_l6cm7")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1748619268]
+position = Vector2(181.00003, -98.99997)
+scale = Vector2(0.7184, 0.7184)
+texture = ExtResource("2_ekxnf")
+script = ExtResource("3_bqqt6")
+rotation_speed = -60.0
+
+[node name="Sign" type="Sprite2D" parent="." unique_id=1014420166]
+position = Vector2(258, -109)
+scale = Vector2(0.074999996, 0.075)
+texture = SubResource("CompressedTexture2D_5dd4i")
+
+[node name="Control" type="Control" parent="." unique_id=1741610350]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Tips" type="TextureButton" parent="Control" unique_id=2072207971]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -8.362999
+anchor_top = 1.683
+anchor_right = 7.9369035
+anchor_bottom = 6.075
+offset_left = -5.4800415
+offset_top = -7.3199997
+offset_right = 6.5238647
+offset_bottom = 3.0
+texture_normal = ExtResource("4_8ln24")
+texture_hover = ExtResource("5_rtw2f")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Shop" type="TextureButton" parent="Control" unique_id=1475919448]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -8.297
+anchor_top = 6.8600006
+anchor_right = 8.675105
+anchor_bottom = 10.881001
+offset_left = -3.119995
+offset_top = -2.4000244
+offset_right = 4.9957886
+offset_bottom = 3.7599487
+texture_normal = ExtResource("6_oa1go")
+texture_hover = ExtResource("7_tbmy8")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="TextureButton" parent="Control" unique_id=1324673349]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.88
+anchor_top = 12.405001
+anchor_right = 4.28
+anchor_bottom = 15.537001
+offset_left = -48.799988
+offset_top = -23.200012
+offset_right = 46.799988
+offset_bottom = 24.519958
+texture_normal = ExtResource("8_jk1qb")
+texture_hover = ExtResource("9_5dd4i")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover Sound" type="AudioStreamPlayer" parent="Control" unique_id=126563033]
+stream = ExtResource("10_lgwnu")
+volume_db = -12.5
+pitch_scale = 1.5
+
+[connection signal="mouse_entered" from="Control/Tips" to="." method="_on_tips_mouse_entered"]
+[connection signal="pressed" from="Control/Tips" to="." method="_on_tips_pressed"]
+[connection signal="mouse_entered" from="Control/Shop" to="." method="_on_shop_mouse_entered"]
+[connection signal="pressed" from="Control/Shop" to="." method="_on_shop_pressed"]
+[connection signal="mouse_entered" from="Control/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
