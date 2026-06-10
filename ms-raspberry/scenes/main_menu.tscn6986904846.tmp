@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2tp1eid5t1qd"]
 
-[ext_resource type="Script" uid="uid://monqmxb56eoa" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://monqmxb56eoa" path="res://scripts/buttons.gd" id="1_l6cm7"]
 [ext_resource type="AudioStream" uid="uid://bmrk64cmjfe5h" path="res://assets/music/8bit Bossa - Main Menu Music.mp3" id="2_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bvdlf1p8ssuc1" path="res://assets/sprites/main-menu/background/background.png" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://cn2ceus6qldgf" path="res://scripts/spinning_background.gd" id="3_bqqt6"]
@@ -14,10 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://cmvqbx0xq0kbu" path="res://assets/transparent_square.png" id="11_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://208y4jq8gitw" path="res://assets/sprites/main-menu/buttons/flask.png" id="12_flqon"]
 [ext_resource type="Texture2D" uid="uid://cx2atic75mca0" path="res://assets/sprites/ms-raspberry.png" id="12_rcqid"]
-[ext_resource type="AudioStream" uid="uid://dqp8ibab48j1i" path="res://assets/sound-effects/hover_flask.mp3" id="14_7b55j"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5dd4i"]
 load_path = "res://.godot/imported/logo_sign.png-3df60f02840af7c860168b509aed2e98.ctex"
+
+[sub_resource type="GDScript" id="GDScript_1ajci"]
+script/source = "extends Sprite2D
+
+func _ready() -> void:
+	pass
+
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Main Menu" type="Node2D" unique_id=283911400]
 script = ExtResource("1_l6cm7")
@@ -39,15 +48,11 @@ position = Vector2(258, -109)
 scale = Vector2(0.074999996, 0.075)
 texture = SubResource("CompressedTexture2D_5dd4i")
 
-[node name="MsRaspberry" type="Sprite2D" parent="." unique_id=1679423218]
-position = Vector2(1221, 325.99997)
-scale = Vector2(0.728, 1.008)
-texture = ExtResource("12_rcqid")
-
 [node name="Flask" type="Sprite2D" parent="." unique_id=116256596]
 position = Vector2(650, 350.92743)
 scale = Vector2(0.045749996, 0.04574999)
 texture = ExtResource("12_flqon")
+script = SubResource("GDScript_1ajci")
 
 [node name="Control" type="Control" parent="." unique_id=1741610350]
 layout_mode = 3
@@ -119,15 +124,15 @@ offset_right = -6.1035156e-05
 texture_normal = ExtResource("11_lgwnu")
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover Flask" type="AudioStreamPlayer" parent="Control" unique_id=618029031]
-stream = ExtResource("14_7b55j")
-volume_db = -10.0
-pitch_scale = 1.4
-
-[node name="Hover Button" type="AudioStreamPlayer" parent="Control" unique_id=126563033]
+[node name="Hover Sound" type="AudioStreamPlayer" parent="Control" unique_id=126563033]
 stream = ExtResource("10_lgwnu")
 volume_db = -12.5
 pitch_scale = 1.5
+
+[node name="MsRaspberry" type="Sprite2D" parent="Control" unique_id=1679423218]
+position = Vector2(1221, 325.99997)
+scale = Vector2(0.728, 1.008)
+texture = ExtResource("12_rcqid")
 
 [connection signal="mouse_entered" from="Control/Tips" to="." method="_on_tips_mouse_entered"]
 [connection signal="pressed" from="Control/Tips" to="." method="_on_tips_pressed"]
@@ -136,6 +141,4 @@ pitch_scale = 1.5
 [connection signal="mouse_entered" from="Control/Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
 [connection signal="button_down" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_down"]
-[connection signal="mouse_entered" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_entered"]
-[connection signal="mouse_exited" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_exited"]
 [connection signal="pressed" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_pressed"]
