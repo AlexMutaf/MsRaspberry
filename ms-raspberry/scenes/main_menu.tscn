@@ -92,6 +92,15 @@ stream = ExtResource("10_lgwnu")
 volume_db = -12.5
 pitch_scale = 1.5
 
+[node name="Button" type="Button" parent="Control" unique_id=1823492387]
+layout_mode = 0
+offset_left = 788.0
+offset_top = 206.0
+offset_right = 1025.0
+offset_bottom = 611.0
+text = "Kolba
+"
+
 [connection signal="mouse_entered" from="Control/Tips" to="." method="_on_tips_mouse_entered"]
 [connection signal="pressed" from="Control/Tips" to="." method="_on_tips_pressed"]
 [connection signal="mouse_entered" from="Control/Shop" to="." method="_on_shop_mouse_entered"]
