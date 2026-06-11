@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://j44sg5j5yddg" path="res://assets/sprites/main-menu/buttons/exit.png" id="8_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://bskda8pph2x08" path="res://assets/sprites/main-menu/buttons/exit_selected.png" id="9_5dd4i"]
 [ext_resource type="AudioStream" uid="uid://nm788jul0g16" path="res://assets/sound-effects/hover_button.mp3" id="10_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://cmvqbx0xq0kbu" path="res://assets/transparent_square.png" id="11_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://cmvqbx0xq0kbu" path="res://assets/sprites/transparent_square.png" id="11_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://208y4jq8gitw" path="res://assets/sprites/main-menu/buttons/flask.png" id="12_flqon"]
 [ext_resource type="Texture2D" uid="uid://cx2atic75mca0" path="res://assets/sprites/ms-raspberry.png" id="12_rcqid"]
 [ext_resource type="AudioStream" uid="uid://dqp8ibab48j1i" path="res://assets/sound-effects/hover_flask.mp3" id="14_7b55j"]
