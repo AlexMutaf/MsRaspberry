@@ -22,39 +22,24 @@ load_path = "res://.godot/imported/logo_sign.png-3df60f02840af7c860168b509aed2e9
 [node name="Main Menu" type="Node2D" unique_id=283911400]
 script = ExtResource("1_l6cm7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1667259582]
+[node name="Control" type="Control" parent="." unique_id=1741610350]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1748619268]
-position = Vector2(537, 178.00003)
+[node name="Background" type="TextureRect" parent="Control" unique_id=818688608]
+layout_mode = 1
+offset_left = 181.00003
+offset_top = -98.99997
+offset_right = -0.00048828125
+offset_bottom = 1010.35986
 texture = ExtResource("2_ekxnf")
 script = ExtResource("3_bqqt6")
 rotation_speed = -60.0
 
-[node name="Sign" type="Sprite2D" parent="CanvasLayer" unique_id=1014420166]
-position = Vector2(614, 168)
-scale = Vector2(0.074999996, 0.075)
-texture = SubResource("CompressedTexture2D_5dd4i")
-
-[node name="MsRaspberry" type="Sprite2D" parent="CanvasLayer" unique_id=1679423218]
-visible = false
-position = Vector2(1221, 325.99997)
-scale = Vector2(0.728, 1.008)
-texture = ExtResource("12_rcqid")
-
-[node name="Flask" type="Sprite2D" parent="CanvasLayer" unique_id=116256596]
-position = Vector2(1006, 627.9274)
-scale = Vector2(0.045749996, 0.04574999)
-texture = ExtResource("12_flqon")
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1741610350]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 356.0
-offset_top = 277.0
-offset_right = 396.0
-offset_bottom = 317.0
-
-[node name="Tips" type="TextureButton" parent="CanvasLayer/Control" unique_id=2072207971]
+[node name="Tips" type="TextureButton" parent="Control" unique_id=2072207971]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -8.362999
@@ -69,8 +54,9 @@ texture_normal = ExtResource("4_8ln24")
 texture_hover = ExtResource("5_rtw2f")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="Shop" type="TextureButton" parent="CanvasLayer/Control" unique_id=1475919448]
+[node name="Shop" type="TextureButton" parent="Control" unique_id=1475919448]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -8.297
@@ -85,8 +71,9 @@ texture_normal = ExtResource("6_oa1go")
 texture_hover = ExtResource("7_tbmy8")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="Exit" type="TextureButton" parent="CanvasLayer/Control" unique_id=1324673349]
+[node name="Exit" type="TextureButton" parent="Control" unique_id=1324673349]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -6.88
@@ -101,8 +88,9 @@ texture_normal = ExtResource("8_jk1qb")
 texture_hover = ExtResource("9_5dd4i")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="Invisible Start Button" type="TextureButton" parent="CanvasLayer/Control" unique_id=1488770497]
+[node name="Invisible Start Button" type="TextureButton" parent="Control" unique_id=1488770497]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 12.475
@@ -112,29 +100,46 @@ anchor_bottom = 13.523186
 offset_top = -1.5258789e-05
 offset_right = -6.1035156e-05
 texture_normal = ExtResource("11_lgwnu")
+metadata/_edit_use_anchors_ = true
 
-[node name="Background Music" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=2087647731]
+[node name="Sign" type="Sprite2D" parent="Control" unique_id=1014420166]
+position = Vector2(258, -109)
+scale = Vector2(0.074999996, 0.075)
+texture = SubResource("CompressedTexture2D_5dd4i")
+
+[node name="Flask" type="Sprite2D" parent="Control" unique_id=116256596]
+position = Vector2(650, 350.92743)
+scale = Vector2(0.045749996, 0.04574999)
+texture = ExtResource("12_flqon")
+
+[node name="MsRaspberry" type="Sprite2D" parent="Control" unique_id=1679423218]
+visible = false
+position = Vector2(1221, 325.99997)
+scale = Vector2(0.728, 1.008)
+texture = ExtResource("12_rcqid")
+
+[node name="Background Music" type="AudioStreamPlayer" parent="Control" unique_id=2087647731]
 stream = ExtResource("2_1ajci")
 volume_db = -7.0
 autoplay = true
 
-[node name="Hover Flask" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=618029031]
+[node name="Hover Flask" type="AudioStreamPlayer" parent="Control" unique_id=618029031]
 stream = ExtResource("14_7b55j")
 volume_db = -10.0
 pitch_scale = 1.4
 
-[node name="Hover Button" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=126563033]
+[node name="Hover Button" type="AudioStreamPlayer" parent="Control" unique_id=126563033]
 stream = ExtResource("10_lgwnu")
 volume_db = -12.5
 pitch_scale = 1.5
 
-[connection signal="mouse_entered" from="CanvasLayer/Control/Tips" to="." method="_on_tips_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Control/Tips" to="." method="_on_tips_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Control/Shop" to="." method="_on_shop_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Control/Shop" to="." method="_on_shop_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Control/Exit" to="." method="_on_exit_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Control/Exit" to="." method="_on_exit_pressed"]
-[connection signal="button_down" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_down"]
-[connection signal="mouse_entered" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_pressed"]
+[connection signal="mouse_entered" from="Control/Tips" to="." method="_on_tips_mouse_entered"]
+[connection signal="pressed" from="Control/Tips" to="." method="_on_tips_pressed"]
+[connection signal="mouse_entered" from="Control/Shop" to="." method="_on_shop_mouse_entered"]
+[connection signal="pressed" from="Control/Shop" to="." method="_on_shop_pressed"]
+[connection signal="mouse_entered" from="Control/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="button_down" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_down"]
+[connection signal="mouse_entered" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_exited"]
+[connection signal="pressed" from="Control/Invisible Start Button" to="." method="_on_invisible_start_button_pressed"]

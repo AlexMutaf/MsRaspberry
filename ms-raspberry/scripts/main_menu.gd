@@ -2,12 +2,10 @@ extends Node2D
 
 # Pressing the button
 func _on_tips_pressed() -> void:
-	return
-	get_tree().change_scene_to_file("");
+	pass
 
 func _on_shop_pressed() -> void:
-	return
-	get_tree().change_scene_to_file("");
+	pass
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
@@ -15,18 +13,18 @@ func _on_exit_pressed() -> void:
 
 # Hovering over the button.
 func _on_tips_mouse_entered() -> void:
-	$"Control/Hover Button".play()
+	$"CanvasLayer/Control/Hover Button".play()
 
 func _on_shop_mouse_entered() -> void:
-	$"Control/Hover Button".play()
+	$"CanvasLayer/Control/Hover Button".play()
 
 func _on_exit_mouse_entered() -> void:
-	$"Control/Hover Button".play()
+	$"CanvasLayer/Control/Hover Button".play()
 
 # Start button
 
-@onready var flask = $Flask
-@onready var start_button = $"Control/Invisible Start Button"
+@onready var flask = $CanvasLayer/Flask
+@onready var start_button = $"CanvasLayer/Control/Invisible Start Button"
 
 @export var speed: float = 5
 @export var radius: float = 50
@@ -54,7 +52,7 @@ func _on_invisible_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
 
 func _on_invisible_start_button_mouse_entered() -> void:
-	$"Control/Hover Flask".play()
+	$"CanvasLayer/Control/Hover Flask".play()
 	is_hovered = true
 
 func _on_invisible_start_button_mouse_exited() -> void:
