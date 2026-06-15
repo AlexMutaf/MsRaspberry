@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://unfgnifdlvj7"]
 
 [ext_resource type="Texture2D" uid="uid://bvdlf1p8ssuc1" path="res://assets/sprites/main-menu/background/background.png" id="1_hprjd"]
-[ext_resource type="Script" uid="uid://b0jcoo6jyr6vv" path="res://scripts/bubbling.gd" id="1_pu4a1"]
 [ext_resource type="Script" uid="uid://cn2ceus6qldgf" path="res://scripts/spinning_background.gd" id="2_ku3bi"]
 [ext_resource type="Texture2D" uid="uid://208y4jq8gitw" path="res://assets/sprites/main-menu/buttons/flask.png" id="3_ku3bi"]
 [ext_resource type="Script" uid="uid://boqrahnvyr5et" path="res://scripts/turning_flask.gd" id="4_5phy8"]
@@ -49,7 +48,6 @@ _data = {
 }
 
 [node name="Loading Screen" type="Node2D" unique_id=1062228695]
-script = ExtResource("1_pu4a1")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=796526250]
 position = Vector2(966.99994, 202.99998)
@@ -87,3 +85,6 @@ libraries/ = SubResource("AnimationLibrary_pu4a1")
 [node name="Bubbling" type="AudioStreamPlayer" parent="." unique_id=1938142748]
 stream = ExtResource("6_pu4a1")
 autoplay = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2076363371]
+wait_time = 3.0
