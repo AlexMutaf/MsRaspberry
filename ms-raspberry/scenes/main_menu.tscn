@@ -179,17 +179,17 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_8egab")
 
 [node name="tips_label" type="Label" parent="CanvasLayer/Control/tips_panel" unique_id=83080222]
 layout_mode = 0
-offset_left = 44.0
+offset_left = 46.0
 offset_top = 36.0
-offset_right = 764.0
+offset_right = 1109.0
 offset_bottom = 362.0
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("13_a8gd2")
 theme_override_font_sizes/font_size = 28
-text = "1. За да затвориш този панел натисни червеното 
-бутонче  до долния десен ъгъл
-2. За да влезеш в класната стая натисни на колбата
-3.Натисни ИЗХОД  за да излезеш от играта"
+text = "1. За да затвориш този панел, натисни червеното
+    копче  до долния десен ъгъл.
+2. За да влезеш в класната стая, натисни на колбата.
+3. Натисни ИЗХОД, за да излезеш от играта."
 
 [node name="tips_close" type="TextureButton" parent="CanvasLayer/Control" unique_id=483023059]
 layout_mode = 1
