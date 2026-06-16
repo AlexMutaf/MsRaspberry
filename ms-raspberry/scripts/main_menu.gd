@@ -5,17 +5,17 @@ extends Node2D
 	
 func _on_tips_pressed() -> void:
 	get_node("CanvasLayer/Control/tips_panel").visible = true
-	get_node("CanvasLayer/Control/tips_close").visible = true
 
 func _on_shop_pressed() -> void:
-	pass
+	get_node("CanvasLayer/Control/shop_panel").visible = true
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 	
 func _on_tips_close_pressed() -> void:
+	get_node("CanvasLayer/Control/shop_panel").visible = false
 	get_node("CanvasLayer/Control/tips_panel").visible = false
-	get_node("CanvasLayer/Control/tips_close").visible = false
+	$"CanvasLayer/Control/Hover Button".play()
 	
 # Hovering over the button.
 func _on_tips_mouse_entered() -> void:
