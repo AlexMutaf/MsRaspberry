@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://208y4jq8gitw" path="res://assets/sprites/main-menu/buttons/flask.png" id="12_flqon"]
 [ext_resource type="Texture2D" uid="uid://cx2atic75mca0" path="res://assets/sprites/ms-raspberry.png" id="12_rcqid"]
 [ext_resource type="AudioStream" uid="uid://dqp8ibab48j1i" path="res://assets/sound-effects/hover_flask.mp3" id="14_7b55j"]
+[ext_resource type="Texture2D" uid="uid://yumn56v5cuk4" path="res://assets/sprites/main-menu/buttons/Cross.png" id="16_5pajh"]
+[ext_resource type="FontFile" uid="uid://df2f0hnyteslf" path="res://assets/Magnolia Script.otf" id="16_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://bea8cx6uwkanb" path="res://assets/sprites/main-menu/buttons/Cross_pressed.png" id="17_j7ex8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5dd4i"]
 load_path = "res://.godot/imported/logo_sign.png-3df60f02840af7c860168b509aed2e98.ctex"
@@ -113,6 +116,38 @@ offset_top = -1.5258789e-05
 offset_right = -6.1035156e-05
 texture_normal = ExtResource("11_lgwnu")
 
+[node name="tips_panel" type="Panel" parent="CanvasLayer/Control" unique_id=2081053705]
+layout_mode = 0
+offset_left = -356.0
+offset_top = 57.0
+offset_right = 444.0
+offset_bottom = 470.0
+tooltip_text = "
+"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/tips_panel" unique_id=83080222]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 713.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("16_a8gd2")
+text = "1. За да затвориш този панел натисни х-а в ъгъла
+"
+
+[node name="tips_close" type="TextureButton" parent="CanvasLayer/Control" unique_id=483023059]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 9.355
+anchor_top = 1.4250001
+anchor_right = 11.150001
+anchor_bottom = 3.025
+offset_left = -3.0517578e-05
+offset_right = -3.0517578e-05
+texture_normal = ExtResource("16_5pajh")
+texture_hover = ExtResource("17_j7ex8")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Background Music" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=2087647731]
 stream = ExtResource("2_1ajci")
 volume_db = -7.0
@@ -138,3 +173,4 @@ pitch_scale = 1.5
 [connection signal="mouse_entered" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/tips_close" to="." method="_on_tips_close_pressed"]
