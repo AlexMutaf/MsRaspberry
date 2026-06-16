@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 	flask.position = flask.position.lerp(target_pos, return_speed * delta)
 
 func _on_invisible_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn") # CHANGE THIS BACK LATER!!!
 
 func _on_invisible_start_button_mouse_entered() -> void:
 	$"CanvasLayer/Control/Hover Flask".play()

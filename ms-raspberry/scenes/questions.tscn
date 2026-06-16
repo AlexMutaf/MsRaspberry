@@ -1,3 +1,123 @@
 [gd_scene format=3 uid="uid://cedvv5rw322gw"]
 
+[ext_resource type="Script" uid="uid://dr4287c2b1cyf" path="res://scripts/game_function.gd" id="1_8omho"]
+[ext_resource type="Texture2D" uid="uid://cexasps2raroj" path="res://assets/sprites/questions/background_off.png" id="1_rdw2t"]
+[ext_resource type="FontFile" uid="uid://cvktublnn8mpa" path="res://assets/fonts/Magnolia Script.otf" id="3_bajac"]
+[ext_resource type="Texture2D" uid="uid://bbxb0yl077ss0" path="res://assets/sprites/square.png" id="5_omuor"]
+
+[sub_resource type="Animation" id="Animation_djmwj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Colour:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qygbf"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Colour:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.0666666, 2.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_noq0e"]
+_data = {
+&"RESET": SubResource("Animation_djmwj"),
+&"fade_out": SubResource("Animation_qygbf")
+}
+
 [node name="Questions" type="Node2D" unique_id=2058223328]
+script = ExtResource("1_8omho")
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1178623259]
+
+[node name="Colour" type="ColorRect" parent="TransitionLayer" unique_id=1542290170]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="TransitionLayer" unique_id=270297249]
+libraries/ = SubResource("AnimationLibrary_noq0e")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1970316432]
+position = Vector2(957.16675, 573.49994)
+scale = Vector2(0.64051646, 0.5603298)
+texture = ExtResource("1_rdw2t")
+
+[node name="Topic" type="RichTextLabel" parent="." unique_id=524413253]
+offset_left = 788.0
+offset_top = 168.0
+offset_right = 1610.0
+offset_bottom = 568.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 110
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ST" type="RichTextLabel" parent="." unique_id=951252154]
+offset_left = 1439.0
+offset_top = 136.0
+offset_right = 1666.0
+offset_bottom = 182.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="Question Number" type="RichTextLabel" parent="." unique_id=194470560]
+visible = false
+offset_left = 705.0
+offset_top = 121.0
+offset_right = 852.0
+offset_bottom = 237.0
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "1."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Question" type="RichTextLabel" parent="." unique_id=1177845017]
+visible = false
+offset_left = 582.0
+offset_top = 148.0
+offset_right = 1404.0
+offset_bottom = 588.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 297
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Square" type="Sprite2D" parent="." unique_id=577922854]
+visible = false
+position = Vector2(1449.5, 372.125)
+scale = Vector2(0.51124996, 0.5871875)
+texture = ExtResource("5_omuor")
