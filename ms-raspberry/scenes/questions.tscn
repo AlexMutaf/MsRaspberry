@@ -67,6 +67,11 @@ position = Vector2(957.16675, 573.49994)
 scale = Vector2(0.64051646, 0.5603298)
 texture = ExtResource("1_rdw2t")
 
+[node name="Line" type="Sprite2D" parent="." unique_id=102228634]
+position = Vector2(1195, 296)
+scale = Vector2(0.18863787, 0.16666667)
+texture = ExtResource("5_3glg8")
+
 [node name="Topic" type="RichTextLabel" parent="." unique_id=524413253]
 offset_left = 788.0
 offset_top = 168.0
@@ -122,8 +127,3 @@ visible = false
 position = Vector2(1449.5, 372.125)
 scale = Vector2(0.51124996, 0.5871875)
 texture = ExtResource("5_omuor")
-
-[node name="Line" type="Sprite2D" parent="." unique_id=102228634]
-position = Vector2(1195, 296)
-scale = Vector2(0.18863787, 0.16666667)
-texture = ExtResource("5_3glg8")

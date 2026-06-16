@@ -10,6 +10,7 @@ extends Node2D
 @onready var q_num = $"Question Number"
 @onready var quest = $"Question"
 @onready var ST = $ST
+@onready var line = $Line
 
 const Q_TOPICS = ["Найменувай Елемента"]
 const MAX_QUESTION_AMOUNT = 21;
@@ -139,6 +140,7 @@ func execute_topic(qs_done: int, next_qs: int):
 	await typewrite_text(topic, Q_TOPICS[cur_topic])
 	await Sleep(3)
 	await detype_text(topic)
+	line.show()
 	await Sleep(1.2)
 	for i in range(1, next_qs + 1):
 		change_text(q_num, str((i + qs_done)) + ".")
@@ -149,10 +151,12 @@ func execute_topic(qs_done: int, next_qs: int):
 		quest.hide()
 		q_num.hide()
 		await Sleep(1.5)
+	line.hide()
 	return
 
 
 func _ready():
+	line.hide()
 	await Sleep(1.75)
 	change_background()
 	await Sleep(1.2)
