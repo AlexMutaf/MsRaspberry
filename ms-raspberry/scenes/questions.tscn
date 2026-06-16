@@ -79,6 +79,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ST" type="RichTextLabel" parent="." unique_id=951252154]
+visible = false
 offset_left = 1439.0
 offset_top = 136.0
 offset_right = 1666.0
@@ -91,29 +92,28 @@ bbcode_enabled = true
 
 [node name="Question Number" type="RichTextLabel" parent="." unique_id=194470560]
 visible = false
-offset_left = 705.0
-offset_top = 121.0
-offset_right = 852.0
-offset_bottom = 237.0
-theme_override_constants/outline_size = 13
+offset_left = 1504.0
+offset_top = 139.0
+offset_right = 1634.0
+offset_bottom = 261.0
+theme_override_constants/outline_size = 19
 theme_override_fonts/normal_font = ExtResource("3_bajac")
-theme_override_font_sizes/normal_font_size = 62
+theme_override_font_sizes/normal_font_size = 85
 bbcode_enabled = true
 text = "1."
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Question" type="RichTextLabel" parent="." unique_id=1177845017]
-visible = false
-offset_left = 582.0
-offset_top = 148.0
-offset_right = 1404.0
-offset_bottom = 588.0
+offset_left = 751.0
+offset_top = 132.0
+offset_right = 1568.0
+offset_bottom = 280.0
 theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("3_bajac")
 theme_override_font_sizes/normal_font_size = 297
 bbcode_enabled = true
-horizontal_alignment = 1
+scroll_active = false
 vertical_alignment = 1
 
 [node name="Square" type="Sprite2D" parent="." unique_id=577922854]

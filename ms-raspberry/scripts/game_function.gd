@@ -5,8 +5,6 @@ extends Node2D
 
 @onready var background = $Background
 @onready var anim_player = $TransitionLayer/AnimPlayer
-@onready var transit_layer = $TransitionLayer/AnimPlayer
-
 
 @onready var topic = $Topic
 @onready var q_num = $"Question Number"
@@ -14,8 +12,10 @@ extends Node2D
 @onready var ST = $ST
 
 const Q_TOPICS = ["Найменувай Елемента"]
-const MAX_QUESTION_AMOUNT = 3;
+const MAX_QUESTION_AMOUNT = 21;
 var QUESTION_TOPICS = Q_TOPICS.size();
+const NORMAL_FONT_SIZE = 110
+
 
 var last_topic = -1
 
@@ -60,7 +60,7 @@ var elements: Array[Array] = [
 ##    * ??? -> 2CaO
 ## 4. -
 
-func Sleep(amount: int):
+func Sleep(amount: float):
 	await get_tree().create_timer(amount).timeout
 
 func change_background():
@@ -101,11 +101,37 @@ func choose_next_topic():
 			last_topic = topic
 			return topic
 
+func set_perfect_font(label_node: RichTextLabel, text: String):
+	var max_font_size = 500
+	var min_font_size = 10
+	
+	var current_font: Font = label_node.get_theme_font("normal_font")
+	if !(current_font):
+		current_font = ThemeDB.get_fallback_font()
+		
+	var max_allowed_width: float = label_node.size.x
+	var max_allowed_height: float = label_node.size.y
+	
+	var optimal_size = max_font_size
+	
+	for size_guess in range(max_font_size, min_font_size - 1, -1):
+			var text_size: Vector2 = current_font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, size_guess)
+			if text_size.x <= max_allowed_width && text_size.y <= max_allowed_height:
+				optimal_size = size_guess
+				break
+	label_node.add_theme_font_size_override("normal_font_size", optimal_size)
+
+func reset_font_size(label_node: RichTextLabel):
+	label_node.add_theme_font_size_override("normal_font_size", NORMAL_FONT_SIZE)
+
 func guess_elements():
 	var arr_elements = elements[1].size()
 	var mode = randi_range(0, 1)
 	var chosen_elem = randi_range(0, arr_elements - 1)
-	change_text(quest, elements[mode][chosen_elem])
+	var display_text: String = elements[mode][chosen_elem]
+	reset_font_size(quest)
+	set_perfect_font(quest, " " + display_text)
+	change_text(quest, " " + display_text)
 	quest.show()
 
 func execute_topic(qs_done: int, next_qs: int):

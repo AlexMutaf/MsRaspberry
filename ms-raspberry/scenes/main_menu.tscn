@@ -117,6 +117,7 @@ offset_right = -6.1035156e-05
 texture_normal = ExtResource("11_lgwnu")
 
 [node name="tips_panel" type="Panel" parent="CanvasLayer/Control" unique_id=2081053705]
+visible = false
 layout_mode = 0
 offset_left = -356.0
 offset_top = 57.0
@@ -126,6 +127,7 @@ tooltip_text = "
 "
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/tips_panel" unique_id=83080222]
+visible = false
 layout_mode = 0
 offset_top = -1.0
 offset_right = 713.0
@@ -135,6 +137,7 @@ text = "1. За да затвориш този панел натисни х-а �
 "
 
 [node name="tips_close" type="TextureButton" parent="CanvasLayer/Control" unique_id=483023059]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 9.355
