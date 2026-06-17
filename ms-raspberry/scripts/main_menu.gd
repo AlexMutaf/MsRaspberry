@@ -15,15 +15,26 @@ func _on_exit_pressed() -> void:
 func _on_tips_close_pressed() -> void:
 	get_node("CanvasLayer/Control/shop_panel").visible = false
 	get_node("CanvasLayer/Control/tips_panel").visible = false
+	get_node("CanvasLayer/Control/credits_panel").visible = false
 	$"CanvasLayer/Control/Hover Button".play()
 	
 func _on_to_shop_pressed() -> void:
 	get_node("CanvasLayer/Control/tips_panel").visible = false
 	get_node("CanvasLayer/Control/shop_panel").visible = true
+	get_node("CanvasLayer/Control/credits_panel").visible = false
+	$"CanvasLayer/Control/Hover Button".play()
 	
 func _on_to_tips_pressed() -> void:
 	get_node("CanvasLayer/Control/tips_panel").visible = true
 	get_node("CanvasLayer/Control/shop_panel").visible = false
+	get_node("CanvasLayer/Control/credits_panel").visible = false
+	$"CanvasLayer/Control/Hover Button".play()
+	
+func _on_to_credits_pressed() -> void:
+	get_node("CanvasLayer/Control/tips_panel").visible = false
+	get_node("CanvasLayer/Control/shop_panel").visible = false
+	get_node("CanvasLayer/Control/credits_panel").visible = true
+	$"CanvasLayer/Control/Hover Button".play()
 
 # Hovering over the button.
 func _on_tips_mouse_entered() -> void:
