@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ccg6c6q7287jf" path="res://assets/sprites/line.png" id="5_3glg8"]
 [ext_resource type="AudioStream" uid="uid://bqsf8507vibaw" path="res://assets/sound-effects/beetlemuse_correct-answer.mp3" id="6_3glg8"]
 [ext_resource type="AudioStream" uid="uid://xks1eudp84rr" path="res://assets/sound-effects/incorrect.mp3" id="7_noq0e"]
+[ext_resource type="Texture2D" uid="uid://dkei1ogfhpqo5" path="res://assets/sprites/rapberry_darina.png" id="8_j5civ"]
 
 [sub_resource type="Animation" id="Animation_djmwj"]
 length = 0.001
@@ -240,6 +241,18 @@ texture_normal = ExtResource("4_omuor")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="to_main_menu" type="Button" parent="Control" unique_id=1022864200]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 21.275002
+anchor_top = 4.55
+anchor_right = 21.550001
+anchor_bottom = 4.8500004
+offset_left = -6.1035156e-05
+offset_right = -6.1035156e-05
+offset_bottom = -1.5258789e-05
+flat = true
+
 [node name="Correct Sound" type="AudioStreamPlayer" parent="." unique_id=986553261]
 stream = ExtResource("6_3glg8")
 volume_db = -6.0
@@ -248,3 +261,10 @@ pitch_scale = 1.8
 [node name="Wrong Sound" type="AudioStreamPlayer" parent="." unique_id=774637453]
 stream = ExtResource("7_noq0e")
 volume_db = -5.0
+
+[node name="RapberryDarina" type="Sprite2D" parent="." unique_id=1465232370]
+position = Vector2(336, 533)
+scale = Vector2(0.297, 0.315)
+texture = ExtResource("8_j5civ")
+
+[connection signal="pressed" from="Control/to_main_menu" to="." method="_on_to_main_menu_pressed"]
