@@ -89,18 +89,6 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ST" type="RichTextLabel" parent="." unique_id=951252154]
-visible = false
-offset_left = 1439.0
-offset_top = 136.0
-offset_right = 1666.0
-offset_bottom = 182.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("3_bajac")
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-
 [node name="Question Number" type="RichTextLabel" parent="." unique_id=194470560]
 visible = false
 offset_left = 1494.0
