@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cn2ceus6qldgf" path="res://scripts/spinning_background.gd" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://dgtytg6x8pifq" path="res://assets/sprites/main-menu/buttons/tips.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://dkei1ogfhpqo5" path="res://assets/sprites/rapberry_darina.png" id="4_a8gd2"]
+[ext_resource type="Script" uid="uid://bksd5fr7nkqwl" path="res://scripts/ms_raspberry.gd" id="5_hstxw"]
 [ext_resource type="Texture2D" uid="uid://c68r3ujrtl1de" path="res://assets/sprites/main-menu/buttons/tips_selelected.png" id="5_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://bcjyc7go7qdlf" path="res://assets/sprites/main-menu/buttons/store.png" id="6_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cnhx7rtye758b" path="res://assets/sprites/main-menu/buttons/store_selected.png" id="7_tbmy8"]
@@ -42,9 +43,10 @@ scale = Vector2(0.074999996, 0.075)
 texture = SubResource("CompressedTexture2D_5dd4i")
 
 [node name="MsRaspberry" type="Sprite2D" parent="CanvasLayer" unique_id=1679423218]
-position = Vector2(1527, 601)
-scale = Vector2(0.29746777, 0.31528845)
+position = Vector2(1543.0001, 576)
+scale = Vector2(0.26687902, 0.2828672)
 texture = ExtResource("4_a8gd2")
+script = ExtResource("5_hstxw")
 
 [node name="Flask" type="Sprite2D" parent="CanvasLayer" unique_id=116256596]
 position = Vector2(1006, 627.9274)
