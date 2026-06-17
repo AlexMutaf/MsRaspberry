@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx2atic75mca0"
-path="res://.godot/imported/ms-raspberry.png-084f26e59513d691704eb5f85900dc05.ctex"
+uid="uid://dkei1ogfhpqo5"
+path="res://.godot/imported/rapberry_darina.png-ef441f8b96fd7a5e45fe67c1b349acaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ms-raspberry.png"
-dest_files=["res://.godot/imported/ms-raspberry.png-084f26e59513d691704eb5f85900dc05.ctex"]
+source_file="res://assets/sprites/rapberry_darina.png"
+dest_files=["res://.godot/imported/rapberry_darina.png-ef441f8b96fd7a5e45fe67c1b349acaa.ctex"]
 
 [params]
 

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bvdlf1p8ssuc1" path="res://assets/sprites/main-menu/background/background.png" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://cn2ceus6qldgf" path="res://scripts/spinning_background.gd" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://dgtytg6x8pifq" path="res://assets/sprites/main-menu/buttons/tips.png" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://dkei1ogfhpqo5" path="res://assets/sprites/rapberry_darina.png" id="4_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://c68r3ujrtl1de" path="res://assets/sprites/main-menu/buttons/tips_selelected.png" id="5_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://bcjyc7go7qdlf" path="res://assets/sprites/main-menu/buttons/store.png" id="6_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cnhx7rtye758b" path="res://assets/sprites/main-menu/buttons/store_selected.png" id="7_tbmy8"]
@@ -13,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://nm788jul0g16" path="res://assets/sound-effects/hover_button.mp3" id="10_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://cmvqbx0xq0kbu" path="res://assets/sprites/transparent_square.png" id="11_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://208y4jq8gitw" path="res://assets/sprites/main-menu/buttons/flask.png" id="12_flqon"]
-[ext_resource type="Texture2D" uid="uid://cx2atic75mca0" path="res://assets/sprites/ms-raspberry.png" id="12_rcqid"]
 [ext_resource type="FontFile" uid="uid://cvktublnn8mpa" path="res://assets/fonts/Magnolia Script.otf" id="13_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://bgpl6py528rm" path="res://assets/sprites/main-menu/buttons/Panel.png" id="13_hstxw"]
 [ext_resource type="AudioStream" uid="uid://dqp8ibab48j1i" path="res://assets/sound-effects/hover_flask.mp3" id="14_7b55j"]
@@ -42,10 +42,9 @@ scale = Vector2(0.074999996, 0.075)
 texture = SubResource("CompressedTexture2D_5dd4i")
 
 [node name="MsRaspberry" type="Sprite2D" parent="CanvasLayer" unique_id=1679423218]
-visible = false
-position = Vector2(1221, 325.99997)
-scale = Vector2(0.728, 1.008)
-texture = ExtResource("12_rcqid")
+position = Vector2(1527, 601)
+scale = Vector2(0.29746777, 0.31528845)
+texture = ExtResource("4_a8gd2")
 
 [node name="Flask" type="Sprite2D" parent="CanvasLayer" unique_id=116256596]
 position = Vector2(1006, 627.9274)
@@ -179,17 +178,22 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_8egab")
 
 [node name="tips_label" type="Label" parent="CanvasLayer/Control/tips_panel" unique_id=83080222]
 layout_mode = 0
-offset_left = 46.0
+offset_left = 44.0
 offset_top = 36.0
-offset_right = 1109.0
+offset_right = 765.0
 offset_bottom = 362.0
+theme_override_constants/line_spacing = -6
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("13_a8gd2")
 theme_override_font_sizes/font_size = 28
 text = "1. За да затвориш този панел, натисни червеното
     копче  до долния десен ъгъл.
 2. За да влезеш в класната стая, натисни на колбата.
-3. Натисни ИЗХОД, за да излезеш от играта."
+3. Натисни ИЗХОД, за да излезеш от играта.
+4.От дясно на ляво първото сиво коп	че ти показва 
+магазина
+5.Второто сиво копче от дясно на ляво ти показва
+съветите (екрана който гледате в момента)"
 
 [node name="tips_close" type="TextureButton" parent="CanvasLayer/Control" unique_id=483023059]
 layout_mode = 1
