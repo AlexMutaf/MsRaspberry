@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://dr4287c2b1cyf" path="res://scripts/game_function.gd" id="1_8omho"]
 [ext_resource type="Texture2D" uid="uid://cexasps2raroj" path="res://assets/sprites/questions/background_off.png" id="1_rdw2t"]
 [ext_resource type="FontFile" uid="uid://cvktublnn8mpa" path="res://assets/fonts/Magnolia Script.otf" id="3_bajac"]
+[ext_resource type="Texture2D" uid="uid://cmvqbx0xq0kbu" path="res://assets/sprites/transparent_square.png" id="4_omuor"]
 [ext_resource type="Texture2D" uid="uid://bbxb0yl077ss0" path="res://assets/sprites/square.png" id="5_omuor"]
+[ext_resource type="AudioStream" uid="uid://bqsf8507vibaw" path="res://assets/sound-effects/beetlemuse_correct-answer.mp3" id="6_3glg8"]
+[ext_resource type="AudioStream" uid="uid://xks1eudp84rr" path="res://assets/sound-effects/incorrect.mp3" id="7_noq0e"]
 
 [sub_resource type="Animation" id="Animation_djmwj"]
 length = 0.001
@@ -92,10 +95,10 @@ bbcode_enabled = true
 
 [node name="Question Number" type="RichTextLabel" parent="." unique_id=194470560]
 visible = false
-offset_left = 1504.0
-offset_top = 139.0
-offset_right = 1634.0
-offset_bottom = 261.0
+offset_left = 1500.0
+offset_top = 146.0
+offset_right = 1630.0
+offset_bottom = 268.0
 theme_override_constants/outline_size = 19
 theme_override_fonts/normal_font = ExtResource("3_bajac")
 theme_override_font_sizes/normal_font_size = 85
@@ -105,19 +108,142 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Question" type="RichTextLabel" parent="." unique_id=1177845017]
-offset_left = 751.0
-offset_top = 132.0
-offset_right = 1568.0
-offset_bottom = 280.0
+visible = false
+offset_left = 762.0
+offset_top = 159.0
+offset_right = 1532.0
+offset_bottom = 325.0
 theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("3_bajac")
-theme_override_font_sizes/normal_font_size = 297
+theme_override_font_sizes/normal_font_size = 110
 bbcode_enabled = true
 scroll_active = false
 vertical_alignment = 1
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=1149860164]
+visible = false
+offset_left = 1440.0
+offset_top = 522.0
+offset_right = 1648.0
+offset_bottom = 605.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "00:00 "
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=589595877]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 771.0
+offset_top = 430.0
+offset_right = 811.0
+offset_bottom = 470.0
+
+[node name="Answer A" type="RichTextLabel" parent="Control" unique_id=115865017]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = -96.0
+offset_right = 903.0
+offset_bottom = -13.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = " А) CaO + 2HCL -> CaCl2 + H2O"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Answer B" type="RichTextLabel" parent="Control" unique_id=1802732314]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = -16.0
+offset_right = 903.0
+offset_bottom = 67.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = " А) CaO + 2HCL -> CaCl2 + H2O"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Answer C" type="RichTextLabel" parent="Control" unique_id=139536078]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 67.0
+offset_right = 903.0
+offset_bottom = 150.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_bajac")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = " А) CaO + 2HCL -> CaCl2 + H2O"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Button A" type="TextureButton" parent="Control" unique_id=1278857060]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.22500001
+anchor_top = -1.7
+anchor_right = 1.475
+anchor_bottom = -0.15
+offset_top = -15.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_omuor")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button B" type="TextureButton" parent="Control" unique_id=1395837849]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.22500001
+anchor_top = -1.7
+anchor_right = 1.475
+anchor_bottom = -0.15
+offset_top = 65.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_omuor")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button C" type="TextureButton" parent="Control" unique_id=893374642]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.22500001
+anchor_top = -1.7
+anchor_right = 1.475
+anchor_bottom = -0.15
+offset_top = 148.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_omuor")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Square" type="Sprite2D" parent="." unique_id=577922854]
 visible = false
 position = Vector2(1449.5, 372.125)
 scale = Vector2(0.51124996, 0.5871875)
 texture = ExtResource("5_omuor")
+
+[node name="Correct Sound" type="AudioStreamPlayer" parent="." unique_id=986553261]
+stream = ExtResource("6_3glg8")
+volume_db = -6.0
+pitch_scale = 1.8
+
+[node name="Wrong Sound" type="AudioStreamPlayer" parent="." unique_id=774637453]
+stream = ExtResource("7_noq0e")
+volume_db = -5.0

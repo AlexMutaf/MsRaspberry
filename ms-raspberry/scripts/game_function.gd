@@ -2,22 +2,29 @@ extends Node2D
 
 @onready var off_texture = preload("res://assets/sprites/questions/background_off.png")
 @onready var on_texture = preload("res://assets/sprites/questions/background_on.png")
+@onready var correct_texture = preload("res://assets/sprites/questions/background_cor.png")
+@onready var wrong_texture = preload("res://assets/sprites/questions/background_wrong.png")
 
 @onready var background = $Background
 @onready var anim_player = $TransitionLayer/AnimPlayer
 
-@onready var topic = $Topic
-@onready var q_num = $"Question Number"
-@onready var quest = $"Question"
+@onready var topic_label = $Topic
+@onready var quest_num = $"Question Number"
+@onready var quest_label = $"Question"
+@onready var timer_label = $Timer
 @onready var ST = $ST
 
-const Q_TOPICS = ["Найменувай Елемента"]
-const MAX_QUESTION_AMOUNT = 21;
+@onready var LAB_A = $"Control/Answer A"
+@onready var LAB_B = $"Control/Answer B"
+@onready var LAB_C = $"Control/Answer C"
+
+@onready var BUT_A = $"Control/Button A"
+@onready var BUT_B = $"Control/Button B"
+@onready var BUT_C = $"Control/Button C"
+
+const Q_TOPICS = ["Наименувай Елемента"]
+const MAX_QUESTION_AMOUNT = 60;
 var QUESTION_TOPICS = Q_TOPICS.size();
-const NORMAL_FONT_SIZE = 110
-
-
-var last_topic = -1
 
 var elements: Array[Array] = [
 	[
@@ -60,19 +67,14 @@ var elements: Array[Array] = [
 ##    * ??? -> 2CaO
 ## 4. -
 
-func Sleep(amount: float):
-	await get_tree().create_timer(amount).timeout
+# Text funcs:
 
-func change_background():
-	if background.texture == off_texture:
-		background.texture = on_texture
-	else:
-		background.texture = off_texture
+func change_text(label_node: RichTextLabel, new_text: String):
+	label_node.text = new_text
 
 func typewrite_text(label_node: RichTextLabel, new_text: String):
-	label_node.text = new_text
+	change_text(label_node, new_text)
 	label_node.visible_characters = 0
-	
 	var tween = create_tween()
 	var duration = new_text.length() * 0.05
 	tween.tween_property(label_node, "visible_characters", new_text.length(), duration)
@@ -83,25 +85,17 @@ func detype_text(label_node: RichTextLabel):
 	var duration = chars * 0.03
 	tween.tween_property(label_node, "visible_characters", 0, duration)
 	await tween.finished
-	label_node.text = ""
+	change_text(label_node, "")
 
-func change_text(label_node: RichTextLabel, new_text: String):
-	label_node.text = new_text
 
-func start_fade_sequence():
-	anim_player.play("fade_out")
-	await anim_player.animation_finished
-	await Sleep(0.7)
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+# Font funcs
+const NORMAL_FONT_SIZE = 110
 
-func choose_next_topic():
-	while true:
-		var topic = randi_range(0, QUESTION_TOPICS - 1)
-		if(topic != last_topic || true): # REMOVE TRUE STATEMENT
-			last_topic = topic
-			return topic
+func reset_font_size(label_node: RichTextLabel):
+	label_node.add_theme_font_size_override("normal_font_size", NORMAL_FONT_SIZE)
 
 func set_perfect_font(label_node: RichTextLabel, text: String):
+	reset_font_size(quest_label)
 	var max_font_size = 500
 	var min_font_size = 10
 	
@@ -121,38 +115,141 @@ func set_perfect_font(label_node: RichTextLabel, text: String):
 				break
 	label_node.add_theme_font_size_override("normal_font_size", optimal_size)
 
-func reset_font_size(label_node: RichTextLabel):
-	label_node.add_theme_font_size_override("normal_font_size", NORMAL_FONT_SIZE)
 
-func guess_elements():
-	var arr_elements = elements[1].size()
+# Other funcs
+
+func start_fade_sequence():
+	anim_player.play("fade_out")
+	await anim_player.animation_finished
+	await Sleep(0.7)
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func change_background():
+	if background.texture == off_texture:
+		background.texture = on_texture
+	else:
+		background.texture = off_texture
+
+func flick_background(ans: bool):
+	var flick
+	if (ans == true):
+		flick = correct_texture
+		$"Correct Sound".play()
+	else:
+		flick = wrong_texture
+		$"Wrong Sound".play()
+		
+	background.texture = flick
+	await Sleep(0.4)
+	background.texture = on_texture
+
+func Sleep(amount: float):
+	await get_tree().create_timer(amount).timeout
+
+
+# Answer funcs
+
+func set_answers(answers: Array[ans_t]):
+	change_text(LAB_A, " А) " + answers[0].ans)
+	change_text(LAB_B, " Б) " + answers[1].ans)
+	change_text(LAB_C, " В) " + answers[2].ans)
+
+func hide_or_show_ans():
+	if LAB_A.visible:
+		LAB_A.hide()
+		LAB_B.hide()
+		LAB_C.hide()
+	else:
+		LAB_A.show()
+		LAB_B.show()
+		LAB_C.show()
+
+func check_same_ans(num_range: int, new_elem: int, answers: Array[ans_t]) -> bool:
+	for i in range(0, num_range):
+		if (new_elem == answers[i].elem):
+			return false
+	return true
+
+
+# Other, other funcs
+
+var cur_choice = -1
+func check_user_ans(ordered_ans: Array[bool]) -> bool:
+	cur_choice = -1
+	var timer = get_tree().create_timer(10.0)
+	while cur_choice == -1 and timer.time_left > 0:
+		change_text(timer_label, "00:0" + str(int(timer.time_left)) + " ")
+		await get_tree().process_frame
+	if cur_choice == -1:
+		# Ran out of time
+		return false
+	return ordered_ans[cur_choice]
+
+var last_topic = -1
+func choose_next_topic():
+	while true:
+		var topic = randi_range(0, QUESTION_TOPICS - 1)
+		if(topic != last_topic || true): # REMOVE TRUE STATEMENT
+			last_topic = topic
+			return topic
+
+var gotten_elements: Dictionary = {}
+func guess_elements() -> Array[bool]:
+	if (gotten_elements.size() > 10):
+		gotten_elements = {};
+	var arr_elements = elements[1].size() - 1
 	var mode = randi_range(0, 1)
-	var chosen_elem = randi_range(0, arr_elements - 1)
-	var display_text: String = elements[mode][chosen_elem]
-	reset_font_size(quest)
-	set_perfect_font(quest, " " + display_text)
-	change_text(quest, " " + display_text)
-	quest.show()
+	var chosen_elem = randi_range(0, arr_elements)
+	while (gotten_elements.has(chosen_elem)):
+		chosen_elem = randi_range(0, arr_elements)
+	gotten_elements[chosen_elem] = true
+	
+	var answers: Array[ans_t] = [ans_t.new("", chosen_elem, false), 
+								 ans_t.new("", chosen_elem, false),
+								 ans_t.new("", chosen_elem, false)]
+	for i in range(0, 3):
+		while answers[i].elem == chosen_elem || check_same_ans(i, answers[i].elem, answers) == false:
+			var new_elem = randi_range(0, arr_elements)
+			answers[i] = ans_t.new(elements[mode ^ 1][new_elem], new_elem, false)
+	answers[randi_range(0, 2)] = ans_t.new(elements[mode ^ 1][chosen_elem], chosen_elem, true)
+	
+	var display_quest: String = elements[mode][chosen_elem]
+	set_perfect_font(quest_label, " " + display_quest)
+	change_text(quest_label, " " + display_quest)
+	
+	set_answers(answers)
+	
+	return [answers[0].cor, answers[1].cor, answers[2].cor];
 
 func execute_topic(qs_done: int, next_qs: int):
-	var cur_topic = choose_next_topic()
-	await typewrite_text(topic, Q_TOPICS[cur_topic])
+	var cur_topic: int = choose_next_topic()
+	await typewrite_text(topic_label, Q_TOPICS[cur_topic])
 	await Sleep(3)
-	await detype_text(topic)
-	await Sleep(1.2)
+	await detype_text(topic_label)
+	await Sleep(1)
 	for i in range(1, next_qs + 1):
-		change_text(q_num, str((i + qs_done)) + ".")
-		q_num.show()
+		var ordered_ans: Array[bool];
 		if (cur_topic == 0):
-			await guess_elements()
-		await Sleep(3)
-		quest.hide()
-		q_num.hide()
-		await Sleep(1.5)
+			ordered_ans = await guess_elements()
+		change_text(quest_num, str((i + qs_done)) + ".")
+		quest_num.show()
+		quest_label.show()
+		timer_label.show()
+		hide_or_show_ans()
+		var user_ans: bool = await check_user_ans(ordered_ans)
+		quest_label.hide()
+		timer_label.hide()
+		quest_num.hide()
+		hide_or_show_ans()
+		await flick_background(user_ans)
+		await Sleep(1)
 	return
 
-
 func _ready():
+	BUT_A.pressed.connect(func(): cur_choice = 0)
+	BUT_B.pressed.connect(func(): cur_choice = 1)
+	BUT_C.pressed.connect(func(): cur_choice = 2)
+	
 	await Sleep(1.75)
 	change_background()
 	await Sleep(1.2)

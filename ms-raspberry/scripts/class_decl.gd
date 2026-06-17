@@ -1,11 +1,10 @@
-class_name ques_t
+class_name ans_t
 
-var question: String
-var font_size: int
-var ans: int
+var ans: String
+var elem: int
+var cor: bool
 
-# The constructor (Equivalent to a C++ class constructor)
-func _init(_question: String, _font_size: int, _ans: int):
-	question = _question
-	font_size = _font_size
+func _init(_ans: String, _elem: int, _cor: bool):
 	ans = _ans
+	elem = _elem
+	cor = _cor
