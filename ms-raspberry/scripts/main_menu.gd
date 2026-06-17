@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var on_texture = preload("res://assets/sprites/main-menu/background/logo_sign.png")
+@onready var off_texture = preload("res://assets/sprites/main-menu/background/logo_sign_off.png")
+
+
 # Pressing the button 
 
 	
@@ -38,6 +42,15 @@ func _on_to_credits_pressed() -> void:
 	
 func _on_button_pressed() -> void:
 	$CanvasLayer/MsRaspberry.texture = load("res://assets/sprites/main-menu/shop/siamn.png")
+	$"CanvasLayer/Control/Hover Button".play()
+	
+var logo_times:int = 0
+func _on_turn_off_logo_pressed() -> void:
+	if (logo_times==0):
+		$CanvasLayer/Sign.texture = load("res://assets/sprites/main-menu/background/logo_sign_off.png")
+	else:
+		$CanvasLayer/Sign.texture = load("res://assets/sprites/main-menu/background/logo_sign.png")
+	logo_times^=1;
 	
 # Hovering over the button.
 func _on_tips_mouse_entered() -> void:
@@ -57,6 +70,7 @@ func _on_exit_mouse_entered() -> void:
 @export var speed: float = 5
 @export var radius: float = 50
 @export var return_speed: float = 8
+
 
 var is_hovered: bool = false
 var angle: float = 0

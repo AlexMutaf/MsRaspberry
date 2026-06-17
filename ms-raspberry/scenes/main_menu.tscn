@@ -272,6 +272,17 @@ offset_top = -3.0517578e-05
 offset_bottom = -3.0517578e-05
 flat = true
 
+[node name="turn_off_logo" type="Button" parent="CanvasLayer/Control" unique_id=401472275]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.925001
+anchor_top = -0.15
+anchor_right = 19.275002
+anchor_bottom = 0.2
+offset_left = -6.1035156e-05
+offset_right = -6.1035156e-05
+flat = true
+
 [node name="Background Music" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=2087647731]
 stream = ExtResource("2_1ajci")
 volume_db = -7.0
@@ -302,3 +313,4 @@ pitch_scale = 1.5
 [connection signal="pressed" from="CanvasLayer/Control/to_shop" to="." method="_on_to_shop_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/to_tips" to="." method="_on_to_tips_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/to_credits" to="." method="_on_to_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/turn_off_logo" to="." method="_on_turn_off_logo_pressed"]
