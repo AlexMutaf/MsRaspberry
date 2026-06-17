@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bqsf8507vibaw" path="res://assets/sound-effects/beetlemuse_correct-answer.mp3" id="6_3glg8"]
 [ext_resource type="AudioStream" uid="uid://xks1eudp84rr" path="res://assets/sound-effects/incorrect.mp3" id="7_noq0e"]
 [ext_resource type="Texture2D" uid="uid://dkei1ogfhpqo5" path="res://assets/sprites/rapberry_darina.png" id="8_j5civ"]
+[ext_resource type="Script" uid="uid://bksd5fr7nkqwl" path="res://scripts/ms_raspberry.gd" id="9_s2223"]
 
 [sub_resource type="Animation" id="Animation_djmwj"]
 length = 0.001
@@ -262,9 +263,11 @@ pitch_scale = 1.8
 stream = ExtResource("7_noq0e")
 volume_db = -5.0
 
-[node name="RapberryDarina" type="Sprite2D" parent="." unique_id=1465232370]
-position = Vector2(336, 533)
-scale = Vector2(0.297, 0.315)
+[node name="MsRaspberry" type="Sprite2D" parent="." unique_id=929111905]
+position = Vector2(332.99997, 574)
+rotation = 0.06981317
+scale = Vector2(0.2850016, 0.32038307)
 texture = ExtResource("8_j5civ")
+script = ExtResource("9_s2223")
 
 [connection signal="pressed" from="Control/to_main_menu" to="." method="_on_to_main_menu_pressed"]

@@ -97,7 +97,7 @@ func reset_font_size(label_node: RichTextLabel):
 
 func set_perfect_font(label_node: RichTextLabel, text: String):
 	reset_font_size(quest_label)
-	var max_font_size = 500
+	var max_font_size = 110
 	var min_font_size = 10
 	
 	var current_font: Font = label_node.get_theme_font("normal_font")
@@ -208,7 +208,6 @@ func guess_elements() -> Array[bool]:
 	while (gotten_elements.has(chosen_elem)):
 		chosen_elem = randi_range(0, arr_elements)
 	gotten_elements[chosen_elem] = true
-	
 	var answers: Array[ans_t] = [ans_t.new("", chosen_elem, false), 
 								 ans_t.new("", chosen_elem, false),
 								 ans_t.new("", chosen_elem, false)]
@@ -236,7 +235,7 @@ func execute_topic(qs_done: int, next_qs: int):
 	for i in range(1, next_qs + 1):
 		var ordered_ans: Array[bool];
 		if (cur_topic == 0):
-			ordered_ans = await guess_elements()
+			ordered_ans = guess_elements()
 		change_text(quest_num, str((i + qs_done)) + ".")
 		quest_num.show()
 		quest_label.show()
