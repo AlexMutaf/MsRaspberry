@@ -70,6 +70,7 @@ scale = Vector2(0.64051646, 0.5603298)
 texture = ExtResource("1_rdw2t")
 
 [node name="Line" type="Sprite2D" parent="." unique_id=102228634]
+visible = false
 position = Vector2(1195, 296)
 scale = Vector2(0.18863787, 0.16666667)
 texture = ExtResource("5_3glg8")
@@ -100,10 +101,10 @@ bbcode_enabled = true
 
 [node name="Question Number" type="RichTextLabel" parent="." unique_id=194470560]
 visible = false
-offset_left = 1500.0
-offset_top = 146.0
-offset_right = 1630.0
-offset_bottom = 268.0
+offset_left = 1494.0
+offset_top = 181.0
+offset_right = 1624.0
+offset_bottom = 303.0
 theme_override_constants/outline_size = 19
 theme_override_fonts/normal_font = ExtResource("3_bajac")
 theme_override_font_sizes/normal_font_size = 85
@@ -114,14 +115,15 @@ vertical_alignment = 1
 
 [node name="Question" type="RichTextLabel" parent="." unique_id=1177845017]
 visible = false
-offset_left = 762.0
-offset_top = 159.0
-offset_right = 1532.0
-offset_bottom = 325.0
+offset_left = 738.0
+offset_top = 150.0
+offset_right = 1508.0
+offset_bottom = 316.0
 theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("3_bajac")
 theme_override_font_sizes/normal_font_size = 110
 bbcode_enabled = true
+text = " Hello"
 scroll_active = false
 vertical_alignment = 1
 

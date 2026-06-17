@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cm4x3y5uhv566"
-path="res://.godot/imported/bravo.mp3-36f56522282d4d970f29431eac6dccb2.mp3str"
+path="res://.godot/imported/bravo.mp3-e8b28525d34177368cc594c60b4bf3fa.mp3str"
 
 [deps]
 
-source_file="res://assets/sound-effects/bravo.mp3"
-dest_files=["res://.godot/imported/bravo.mp3-36f56522282d4d970f29431eac6dccb2.mp3str"]
+source_file="res://assets/sound-effects/unused/bravo.mp3"
+dest_files=["res://.godot/imported/bravo.mp3-e8b28525d34177368cc594c60b4bf3fa.mp3str"]
 
 [params]
 

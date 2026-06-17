@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dgfo60cgdxvx2"
-path="res://.godot/imported/pravilno.mp3-fc28fa1f34308a118da8a32b21f61634.mp3str"
+path="res://.godot/imported/pravilno.mp3-c6553a567fde466bf1dd4b4f70fc748f.mp3str"
 
 [deps]
 
-source_file="res://assets/sound-effects/pravilno.mp3"
-dest_files=["res://.godot/imported/pravilno.mp3-fc28fa1f34308a118da8a32b21f61634.mp3str"]
+source_file="res://assets/sound-effects/unused/pravilno.mp3"
+dest_files=["res://.godot/imported/pravilno.mp3-c6553a567fde466bf1dd4b4f70fc748f.mp3str"]
 
 [params]
 

@@ -227,7 +227,7 @@ func execute_topic(qs_done: int, next_qs: int):
 	await typewrite_text(topic_label, Q_TOPICS[cur_topic])
 	await Sleep(3)
 	await detype_text(topic_label)
-	line.show()
+	
 	await Sleep(1)
 	for i in range(1, next_qs + 1):
 		var ordered_ans: Array[bool];
@@ -236,16 +236,17 @@ func execute_topic(qs_done: int, next_qs: int):
 		change_text(quest_num, str((i + qs_done)) + ".")
 		quest_num.show()
 		quest_label.show()
+		line.show()
 		timer_label.show()
 		hide_or_show_ans()
 		var user_ans: bool = await check_user_ans(ordered_ans)
 		quest_label.hide()
+		line.hide()
 		timer_label.hide()
 		quest_num.hide()
 		hide_or_show_ans()
 		await flick_background(user_ans)
 		await Sleep(1)
-	line.hide()
 	return
 
 func _ready():
@@ -253,7 +254,6 @@ func _ready():
 	BUT_B.pressed.connect(func(): cur_choice = 1)
 	BUT_C.pressed.connect(func(): cur_choice = 2)
 	
-	line.hide()
 	await Sleep(1.75)
 	change_background()
 	await Sleep(1.2)
