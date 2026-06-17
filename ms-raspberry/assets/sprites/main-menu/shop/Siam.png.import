@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bea8cx6uwkanb"
-path="res://.godot/imported/Cross_pressed.png-529f2be594b79e7ff9ea14c594e52806.ctex"
+uid="uid://dhcd7clt8njtv"
+path="res://.godot/imported/Siam.png-f2e068fa9c10b7f3acca2acdf45cf5fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/main-menu/buttons/Cross_pressed.png"
-dest_files=["res://.godot/imported/Cross_pressed.png-529f2be594b79e7ff9ea14c594e52806.ctex"]
+source_file="res://assets/sprites/main-menu/shop/Siam.png"
+dest_files=["res://.godot/imported/Siam.png-f2e068fa9c10b7f3acca2acdf45cf5fa.ctex"]
 
 [params]
 
