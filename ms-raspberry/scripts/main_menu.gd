@@ -35,7 +35,10 @@ func _on_to_credits_pressed() -> void:
 	get_node("CanvasLayer/Control/shop_panel").visible = false
 	get_node("CanvasLayer/Control/credits_panel").visible = true
 	$"CanvasLayer/Control/Hover Button".play()
-
+	
+func _on_button_pressed() -> void:
+	$CanvasLayer/MsRaspberry.texture = load("res://assets/sprites/main-menu/shop/siamn.png")
+	
 # Hovering over the button.
 func _on_tips_mouse_entered() -> void:
 	$"CanvasLayer/Control/Hover Button".play()

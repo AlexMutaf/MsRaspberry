@@ -297,6 +297,7 @@ pitch_scale = 1.5
 [connection signal="mouse_entered" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/shop_panel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/tips_close" to="." method="_on_tips_close_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/to_shop" to="." method="_on_to_shop_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/to_tips" to="." method="_on_to_tips_pressed"]
