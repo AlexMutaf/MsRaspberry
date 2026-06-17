@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cexasps2raroj" path="res://assets/sprites/questions/background_off.png" id="1_rdw2t"]
 [ext_resource type="FontFile" uid="uid://cvktublnn8mpa" path="res://assets/fonts/Magnolia Script.otf" id="3_bajac"]
 [ext_resource type="Texture2D" uid="uid://cmvqbx0xq0kbu" path="res://assets/sprites/transparent_square.png" id="4_omuor"]
+[ext_resource type="Texture2D" uid="uid://ccg6c6q7287jf" path="res://assets/sprites/line.png" id="5_3glg8"]
 [ext_resource type="Texture2D" uid="uid://bbxb0yl077ss0" path="res://assets/sprites/square.png" id="5_omuor"]
 [ext_resource type="AudioStream" uid="uid://bqsf8507vibaw" path="res://assets/sound-effects/beetlemuse_correct-answer.mp3" id="6_3glg8"]
 [ext_resource type="AudioStream" uid="uid://xks1eudp84rr" path="res://assets/sound-effects/incorrect.mp3" id="7_noq0e"]
@@ -68,6 +69,11 @@ libraries/ = SubResource("AnimationLibrary_noq0e")
 position = Vector2(957.16675, 573.49994)
 scale = Vector2(0.64051646, 0.5603298)
 texture = ExtResource("1_rdw2t")
+
+[node name="Line" type="Sprite2D" parent="." unique_id=102228634]
+position = Vector2(1195, 296)
+scale = Vector2(0.18863787, 0.16666667)
+texture = ExtResource("5_3glg8")
 
 [node name="Topic" type="RichTextLabel" parent="." unique_id=524413253]
 offset_left = 788.0

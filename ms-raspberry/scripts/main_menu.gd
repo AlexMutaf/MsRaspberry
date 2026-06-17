@@ -17,6 +17,14 @@ func _on_tips_close_pressed() -> void:
 	get_node("CanvasLayer/Control/tips_panel").visible = false
 	$"CanvasLayer/Control/Hover Button".play()
 	
+func _on_to_shop_pressed() -> void:
+	get_node("CanvasLayer/Control/tips_panel").visible = false
+	get_node("CanvasLayer/Control/shop_panel").visible = true
+	
+func _on_to_tips_pressed() -> void:
+	get_node("CanvasLayer/Control/tips_panel").visible = true
+	get_node("CanvasLayer/Control/shop_panel").visible = false
+
 # Hovering over the button.
 func _on_tips_mouse_entered() -> void:
 	$"CanvasLayer/Control/Hover Button".play()

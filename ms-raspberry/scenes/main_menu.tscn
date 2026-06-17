@@ -203,6 +203,26 @@ offset_bottom = -3.0517578e-05
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="to_shop" type="Button" parent="CanvasLayer/Control" unique_id=2023174238]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 8.6
+anchor_top = 10.8
+anchor_right = 9.475
+anchor_bottom = 11.675
+flat = true
+
+[node name="to_tips" type="Button" parent="CanvasLayer/Control" unique_id=476917698]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.2000003
+anchor_top = 10.775001
+anchor_right = 8.150001
+anchor_bottom = 11.675
+offset_top = -3.0517578e-05
+offset_right = -3.0517578e-05
+flat = true
+
 [node name="Background Music" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=2087647731]
 stream = ExtResource("2_1ajci")
 volume_db = -7.0
@@ -229,3 +249,5 @@ pitch_scale = 1.5
 [connection signal="mouse_exited" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/Invisible Start Button" to="." method="_on_invisible_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/tips_close" to="." method="_on_tips_close_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/to_shop" to="." method="_on_to_shop_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/to_tips" to="." method="_on_to_tips_pressed"]
